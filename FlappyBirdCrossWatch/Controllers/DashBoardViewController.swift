@@ -9,34 +9,75 @@
 import UIKit
 import WatchConnectivity
 
-class DashBoardViewController: UIViewController, WCSessionDelegate {
-
+class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClientDelegate {
+    
     @IBOutlet weak var labelTimestamp: UILabel!
     @IBOutlet weak var labelMessage: UILabel!
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Do any additional setup after loading the view.
-//    }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    let client = AsyncClient()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
     }
-    */
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        client.serviceType = "_ClientServer._tcp"
+        client.delegate = self
+        client.start()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     
+    @IBAction func sendSignalToTvFromPhone(sender: UIButton) {
+       self.sendSignalToTv()
+    }
+    
+    func sendSignalToTv() -> Void {
+        client.sendObject("PING To tv through phone")
+    }
+    
+    func client(theClient: AsyncClient!, didFindService service: NSNetService!, moreComing: Bool) -> Bool {
+        
+        print("didFindService")
+        print(service)
+        return true
+    }
+    
+    func client(theClient: AsyncClient!, didRemoveService service: NSNetService!) {
+        
+        print("didRemoveService")
+        print(theClient)
+    }
+    
+    func client(theClient: AsyncClient!, didConnect connection: AsyncConnection!) {
+        
+        print("didConnect")
+        print(theClient)
+    }
+    
+    func client(theClient: AsyncClient!, didDisconnect connection: AsyncConnection!) {
+        print("diddisconnect")
+        print(theClient)
+    }
+    
+    func client(theClient: AsyncClient!, didReceiveCommand command: AsyncCommand, object: AnyObject!, connection: AsyncConnection!) {
+        print("didreceivecommand")
+        print(command)
+    }
+    
+    func client(theClient: AsyncClient!, didFailWithError error: NSError!) {
+        print("didfailwitherror")
+    }
+    
+    
+    // MARK: Watch to phone connection delegates
     
     private let session: WCSession? = WCSession.isSupported() ? WCSession.defaultSession() : nil
     
@@ -76,23 +117,13 @@ class DashBoardViewController: UIViewController, WCSessionDelegate {
             
             self.labelTimestamp.text = "\(dateString)"
             if let messageValue = message["message_value"] {
-                self.labelMessage.text = "Last message_value: \(messageValue)"
+                //self.labelMessage.text = "Last message_value: \(messageValue)"
+                
+                self.client.sendObject(dateString)
             }
         }
     }
     
-//    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
-//        let message_val = applicationContext["message_value"] as? String
-//        let timeStr : String =  "\(NSDate().timeIntervalSince1970)"
-//        print("\(timeStr)")
-//        //Use this to update the UI instantaneously (otherwise, takes a little while)
-//        dispatch_async(dispatch_get_main_queue()) {
-//            self.labelTimestamp.text = timeStr
-//            if let message = message_val {
-//                self.labelMessage.text = "Last message_value: \(message)"
-//            }
-//        }
-//    }
 
     
 }
