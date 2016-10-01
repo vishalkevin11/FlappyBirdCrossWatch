@@ -32,6 +32,10 @@
 		9920BF981D9BA1C900F9A9F6 /* DDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BF7E1D9BA1C800F9A9F6 /* DDDispatchQueueLogFormatter.m */; };
 		9920BF991D9BA1C900F9A9F6 /* DDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9920BF801D9BA1C900F9A9F6 /* DDMultiFormatter.m */; };
 		9920BF9A1D9BA1C900F9A9F6 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9920BF811D9BA1C900F9A9F6 /* README.txt */; };
+		993BA41D1D9E3C13005658E3 /* beep.caf in Resources */ = {isa = PBXBuildFile; fileRef = 993BA41C1D9E3C13005658E3 /* beep.caf */; };
+		993BA4211D9E432A005658E3 /* censor_beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 993BA4201D9E432A005658E3 /* censor_beep.wav */; };
+		993BA4231D9E4366005658E3 /* censor_beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 993BA4221D9E4366005658E3 /* censor_beep.wav */; };
+		993BA4241D9E4366005658E3 /* censor_beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 993BA4221D9E4366005658E3 /* censor_beep.wav */; };
 		9951EA651D9AF597005AAD5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951EA641D9AF597005AAD5C /* AppDelegate.swift */; };
 		9951EA6A1D9AF597005AAD5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9951EA681D9AF597005AAD5C /* Main.storyboard */; };
 		9951EA6C1D9AF597005AAD5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9951EA6B1D9AF597005AAD5C /* Assets.xcassets */; };
@@ -45,6 +49,7 @@
 		9951EA941D9B00A1005AAD5C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951EA931D9B00A1005AAD5C /* NotificationController.swift */; };
 		9951EA961D9B00A1005AAD5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9951EA951D9B00A1005AAD5C /* Assets.xcassets */; };
 		9951EA9A1D9B00A1005AAD5C /* FlappyBirdWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 9951EA7C1D9B00A1005AAD5C /* FlappyBirdWatchApp.app */; };
+		99EEC0D71D9CFAF900F2803A /* WatchUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EEC0D61D9CFAF900F2803A /* WatchUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +143,10 @@
 		9920BF7F1D9BA1C800F9A9F6 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
 		9920BF801D9BA1C900F9A9F6 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
 		9920BF811D9BA1C900F9A9F6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		993BA41A1D9E3B3D005658E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		993BA41C1D9E3C13005658E3 /* beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep.caf; sourceTree = "<group>"; };
+		993BA4201D9E432A005658E3 /* censor_beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = censor_beep.wav; sourceTree = "<group>"; };
+		993BA4221D9E4366005658E3 /* censor_beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = censor_beep.wav; sourceTree = "<group>"; };
 		9951EA611D9AF597005AAD5C /* FlappyBirdCrossWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBirdCrossWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9951EA641D9AF597005AAD5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9951EA691D9AF597005AAD5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -156,6 +165,9 @@
 		9951EA931D9B00A1005AAD5C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		9951EA951D9B00A1005AAD5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9951EA971D9B00A1005AAD5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99EEC0D41D9CFAF900F2803A /* FlappyBirdWatchApp Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlappyBirdWatchApp Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		99EEC0D51D9CFAF900F2803A /* WatchUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchUtility.h; sourceTree = "<group>"; };
+		99EEC0D61D9CFAF900F2803A /* WatchUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +302,7 @@
 		9951EA581D9AF597005AAD5C = {
 			isa = PBXGroup;
 			children = (
+				993BA41A1D9E3B3D005658E3 /* Foundation.framework */,
 				9951EA631D9AF597005AAD5C /* FlappyBirdCrossWatch */,
 				9951EA7D1D9B00A1005AAD5C /* FlappyBirdWatchApp */,
 				9951EA8C1D9B00A1005AAD5C /* FlappyBirdWatchApp Extension */,
@@ -315,6 +328,7 @@
 				9951EA771D9AFD1B005AAD5C /* Views */,
 				9951EA641D9AF597005AAD5C /* AppDelegate.swift */,
 				9951EA681D9AF597005AAD5C /* Main.storyboard */,
+				993BA4201D9E432A005658E3 /* censor_beep.wav */,
 				9951EA6B1D9AF597005AAD5C /* Assets.xcassets */,
 				9951EA6D1D9AF597005AAD5C /* LaunchScreen.storyboard */,
 				9951EA701D9AF597005AAD5C /* Info.plist */,
@@ -342,6 +356,8 @@
 			children = (
 				9951EA7E1D9B00A1005AAD5C /* Interface.storyboard */,
 				9951EA811D9B00A1005AAD5C /* Assets.xcassets */,
+				993BA4221D9E4366005658E3 /* censor_beep.wav */,
+				993BA41C1D9E3C13005658E3 /* beep.caf */,
 				9951EA831D9B00A1005AAD5C /* Info.plist */,
 			);
 			path = FlappyBirdWatchApp;
@@ -350,12 +366,15 @@
 		9951EA8C1D9B00A1005AAD5C /* FlappyBirdWatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				99EEC0D51D9CFAF900F2803A /* WatchUtility.h */,
+				99EEC0D61D9CFAF900F2803A /* WatchUtility.m */,
 				9951EA8F1D9B00A1005AAD5C /* InterfaceController.swift */,
 				9951EA911D9B00A1005AAD5C /* ExtensionDelegate.swift */,
 				9951EA931D9B00A1005AAD5C /* NotificationController.swift */,
 				9951EA951D9B00A1005AAD5C /* Assets.xcassets */,
 				9951EA971D9B00A1005AAD5C /* Info.plist */,
 				9951EA8D1D9B00A1005AAD5C /* Supporting Files */,
+				99EEC0D41D9CFAF900F2803A /* FlappyBirdWatchApp Extension-Bridging-Header.h */,
 			);
 			path = "FlappyBirdWatchApp Extension";
 			sourceTree = "<group>";
@@ -471,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9951EA6F1D9AF597005AAD5C /* LaunchScreen.storyboard in Resources */,
+				993BA4211D9E432A005658E3 /* censor_beep.wav in Resources */,
 				9920BF8B1D9BA1C900F9A9F6 /* Documentation.html in Resources */,
 				9951EA6C1D9AF597005AAD5C /* Assets.xcassets in Resources */,
 				9920BF851D9BA1C900F9A9F6 /* AsyncNetwork-Info.plist in Resources */,
@@ -486,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9951EA821D9B00A1005AAD5C /* Assets.xcassets in Resources */,
+				993BA4231D9E4366005658E3 /* censor_beep.wav in Resources */,
 				9951EA801D9B00A1005AAD5C /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +515,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993BA41D1D9E3C13005658E3 /* beep.caf in Resources */,
+				993BA4241D9E4366005658E3 /* censor_beep.wav in Resources */,
 				9951EA961D9B00A1005AAD5C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EEC0D71D9CFAF900F2803A /* WatchUtility.m in Sources */,
 				9951EA941D9B00A1005AAD5C /* NotificationController.swift in Sources */,
 				9951EA921D9B00A1005AAD5C /* ExtensionDelegate.swift in Sources */,
 				9951EA901D9B00A1005AAD5C /* InterfaceController.swift in Sources */,
@@ -695,12 +719,15 @@
 		9951EA9C1D9B00A1005AAD5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "FlappyBirdWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FlappyBirdWatchApp Extension/FlappyBirdWatchApp Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -709,12 +736,14 @@
 		9951EA9D1D9B00A1005AAD5C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "FlappyBirdWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "FlappyBirdWatchApp Extension/FlappyBirdWatchApp Extension-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};

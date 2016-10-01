@@ -15,6 +15,7 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
     @IBOutlet weak var labelMessage: UILabel!
     
     
+    var isPreviousCallCompleted : Bool = true
     let client = AsyncClient()
     
     override func viewDidLoad() {
@@ -101,29 +102,46 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
     
     // MARK: WCSessionDelegate
     
-    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+/*    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
         
         //Use this to update the UI instantaneously (otherwise, takes a little while)
         
         
    
-        let dayTimePeriodFormatter = NSDateFormatter()
-        dayTimePeriodFormatter.dateFormat = "ss"
+//        let dayTimePeriodFormatter = NSDateFormatter()
+//        dayTimePeriodFormatter.dateFormat = "ss"
+//        
+//        let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
         
-        let dateString = dayTimePeriodFormatter.stringFromDate(NSDate())
         
+      //  if  isPreviousCallCompleted {
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                if let messageValue : String = message["message_value"] as? String {
+                    //self.labelMessage.text = "Last message_value: \(messageValue)"
+                    print(messageValue)
+                    self.labelTimestamp.text = "\(messageValue)"
+                    self.client.sendObject(messageValue)
+                }
+        //    }
+        }
         
+    }
+ */
+    
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         dispatch_async(dispatch_get_main_queue()) {
             
-            self.labelTimestamp.text = "\(dateString)"
-            if let messageValue = message["message_value"] {
-                //self.labelMessage.text = "Last message_value: \(messageValue)"
-                
-                self.client.sendObject(dateString)
-            }
-        }
+//            if let messageValue : String = message["message_value"] as? String {
+//                //self.labelMessage.text = "Last message_value: \(messageValue)"
+//                print(messageValue)
+//                self.labelTimestamp.text = "\(messageValue)"
+            
+            let message_dict : [String : AnyObject] = applicationContext
+                self.client.sendObject(message_dict["message_value"] as? String)
+           // }
+                }
     }
-    
 
     
 }
