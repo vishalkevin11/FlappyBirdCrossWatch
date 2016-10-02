@@ -115,7 +115,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 //        }
 //        
     
-        self.motionMgr.accelerometerUpdateInterval = 0.03
+        self.motionMgr.accelerometerUpdateInterval = 0.1
         
         
         self.motionMgr.startAccelerometerUpdates()

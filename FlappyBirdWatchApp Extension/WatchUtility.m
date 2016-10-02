@@ -276,36 +276,40 @@ typedef struct{ double x,y,z; }vec_d3;
             
             
             
-            if ((varSmoothed_last  > 0.3) && (varSmoothed_last  < 0.94) ) {
-                
-                if (isPeakNotified) {
-                    isPeakNotified = false;
+            @synchronized (self) {
+                if ((varSmoothed_last  > 0.27) && (varSmoothed_last  < 0.94) ) {
+                    
+                    if (isPeakNotified) {
+                        isPeakNotified = false;
+                        varSmoothed_last = 0.0;
+                        varSmoother_preLast = 0.0;
+                        
+                        
+                        [self performSelector:@selector(notifyThePeak) withObject:nil afterDelay:0.25];
+                        
+                        return  true;
+                    }
                     
                     
+                    //   varSmoothed_last = 0.0;
+                    // varSmoother_preLast = 0.0;
+                    //  if (varSmoothed_last  > 0.9) {
+                    //      NSLog(@"var_smoothed1 : %f",var_smoothed);
+                    //         //[self.labelGyroscope setBackgroundColor:[UIColor lightGrayqColor]];
+                    //                if (isPeakNotified) {
+                    //                    isPeakNotified = NO;
+                    //                    bumpCounter ++;
+                    ////                    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyBumpOnRoad" object:nil userInfo:@{@"BumpCounter" : @(bumpCounter)}];
+                    ////                    [self performSelector:@selector(notifyTheBump) withObject:nil afterDelay:2.];
+                    //                }
+                    return  false;
                     
-                    [self performSelector:@selector(notifyThePeak) withObject:nil afterDelay:0.2];
-                    
-                    return  true;
                 }
-                
-                
-             //   varSmoothed_last = 0.0;
-               // varSmoother_preLast = 0.0;
-                //  if (varSmoothed_last  > 0.9) {
-          //      NSLog(@"var_smoothed1 : %f",var_smoothed);
-                //         //[self.labelGyroscope setBackgroundColor:[UIColor lightGrayqColor]];
-                //                if (isPeakNotified) {
-                //                    isPeakNotified = NO;
-                //                    bumpCounter ++;
-                ////                    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyBumpOnRoad" object:nil userInfo:@{@"BumpCounter" : @(bumpCounter)}];
-                ////                    [self performSelector:@selector(notifyTheBump) withObject:nil afterDelay:2.];
-                //                }
-                return  false;
-                
+                else {
+                    return false;
+                }
             }
-            else {
-                return false;
-            }
+           
             
             
             
