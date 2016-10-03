@@ -15,7 +15,7 @@ typedef struct{ double x,y,z; }vec_d3;
 #define SMOOTH_IP(x,x_new,fac) x = fac * x + (1. -fac) * x_new
 #define DOUBLE_EMPTY DBL_MAX
 
-#define THRESHOLD_IMPLUSE .15
+#define THRESHOLD_IMPLUSE .85
 
 
 @implementation WatchUtility {
@@ -291,7 +291,7 @@ typedef struct{ double x,y,z; }vec_d3;
             
                 //if ((varSmoothed_last  > 0.3) && (varSmoothed_last  < 0.5) && (isPeakNotified == false)) {
             
-                  if ((varSmoothed_last  > 0.3) && (varSmoothed_last  < 0.7)) {
+                  if ((varSmoothed_last  > 0.29) && (varSmoothed_last  < 0.7)) {
                     
                 
                     
