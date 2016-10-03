@@ -27,7 +27,7 @@ typedef struct{ double x,y,z; }vec_d3;
    // CMMotionManager *motionManager;
     
     //NSInteger bumpCounter;
-    BOOL isPeakNotified;
+    
     
     
     double cuurentX;
@@ -53,6 +53,7 @@ typedef struct{ double x,y,z; }vec_d3;
 }
 
 
+
 -(instancetype)init {
     
     self = [super init];
@@ -73,7 +74,7 @@ typedef struct{ double x,y,z; }vec_d3;
         
         bumpCounter = 0;
       //  motionManager = [[CMMotionManager alloc]init];
-        isPeakNotified =  YES;
+       // self.isPeakNotified =  YES;
     }
     return self;
 }
@@ -164,8 +165,8 @@ typedef struct{ double x,y,z; }vec_d3;
 }
 
 
-- (BOOL)getSpikeForAccelerometerValues:(double)xVal yValue:(double)yVal zValue:(double)zVal  {
-    
+- (BOOL)getSpikeForAccelerometerValues:(double)xVal yValue:(double)yVal zValue:(double)zVal {
+
     
     
    // [motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
@@ -276,20 +277,41 @@ typedef struct{ double x,y,z; }vec_d3;
             
             
             
-            @synchronized (self) {
-                if ((varSmoothed_last  > 0.27) && (varSmoothed_last  < 0.94) ) {
+           // @synchronized (self) {
+                
+//                var defaults = NSUserDefaults(suiteName: "com.tuffytiffany.flappybird")
+//                
+//                defaults?.setBool(false, forKey: "isPeakNotified")
+//                defaults?.synchronize()
+                NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.tuffytiffany.flappybird"];
+                [defaults synchronize];
+        
+            
+            BOOL isPeakNotified = [defaults boolForKey:@"isPeakNotified"];
+            
+                if ((varSmoothed_last  > 0.3) && (varSmoothed_last  < 0.5) && (isPeakNotified == false)) {
+            
                     
-                    if (isPeakNotified) {
-                        isPeakNotified = false;
-                        varSmoothed_last = 0.0;
-                        varSmoother_preLast = 0.0;
-                        
-                        
-                        [self performSelector:@selector(notifyThePeak) withObject:nil afterDelay:0.25];
-                        
-                        return  true;
-                    }
                     
+                
+                    
+                    [defaults setBool:true forKey:@"isPeakNotified"];
+                    [defaults synchronize];
+                    
+                    //self.isPeakNotified = false;
+                   // varSmoothed_last = 0.0;
+                   // varSmoother_preLast = 0.0;
+//                    if (self.isPeakNotified) {
+//                        self.isPeakNotified = false;
+//                        varSmoothed_last = 0.0;
+//                        varSmoother_preLast = 0.0;
+//                        
+//                        
+//                        [self performSelector:@selector(notifyThePeak) withObject:nil afterDelay:0.5];
+//                        
+//                        return  true;
+//                    }
+//                    
                     
                     //   varSmoothed_last = 0.0;
                     // varSmoother_preLast = 0.0;
@@ -302,13 +324,13 @@ typedef struct{ double x,y,z; }vec_d3;
                     ////                    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotifyBumpOnRoad" object:nil userInfo:@{@"BumpCounter" : @(bumpCounter)}];
                     ////                    [self performSelector:@selector(notifyTheBump) withObject:nil afterDelay:2.];
                     //                }
-                    return  false;
+                    return  true;
                     
                 }
                 else {
                     return false;
                 }
-            }
+//}
            
             
             
@@ -329,16 +351,16 @@ typedef struct{ double x,y,z; }vec_d3;
 //                        return;
 //                    });
                     
-               // }
+            }
             
-        }
+       // }
         
     //}];
     return false;
 }
-
--(void)notifyThePeak {
-    isPeakNotified = true;
-}
+//
+//-(void)notifyThePeak {
+//    self.isPeakNotified = true;
+//}
 
 @end

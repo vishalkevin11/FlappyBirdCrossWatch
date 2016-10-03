@@ -43,7 +43,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        self.initializeMotionManager()
+       self.initializeMotionManager()
     }
     
     override func willActivate() {
@@ -115,7 +115,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
 //        }
 //        
     
-        self.motionMgr.accelerometerUpdateInterval = 0.1
+        self.motionMgr.accelerometerUpdateInterval = 0.01
         
         
         self.motionMgr.startAccelerometerUpdates()
@@ -125,7 +125,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             if let acceleration = data?.acceleration {
 //                let rotation = atan2(acceleration.x, acceleration.y) - M_PI
 //                self?.imageView.transform = CGAffineTransformMakeRotation(CGFloat(rotation))
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+               /// NSOperationQueue.mainQueue().addOperationWithBlock {
+                
+                  dispatch_async(dispatch_get_main_queue()) {
 //                                    // update UI here
 //                    self!.xstatusLabel.setText("x \(acceleration.x) y \(acceleration.y) Z \(acceleration.z)")
 //                    self!.xstatusLabel.setText("x \(acceleration.x) y \(acceleration.y) Z \(acceleration.z)")
@@ -145,6 +147,15 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                     let returnval =  watchUtly.getSpikeForAccelerometerValues(acceleration.x, yValue: acceleration.y, zValue: acceleration.z)
                     if returnval {
                    self?.sendPingToPhone(returnval)
+                    }
+                    else {
+                        var defaults = NSUserDefaults(suiteName: "group.com.tuffytiffany.flappybird")
+                        defaults?.synchronize()
+                        
+                        // Check for null value before setting
+                        if let restoredValue : Bool = defaults!.boolForKey("isPeakNotified") {
+                            self?.ystatusLabel.setText("value is\(restoredValue)")
+                        }
                     }
 //                    if (fabs(acceleration.z) > 0.6 && fabs(acceleration.z) < 0.7) {
 //                     self!.sendvalueToPhone("\(acceleration.x)")
@@ -193,7 +204,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     
     func sendPingToPhone(returnval : Bool) -> Void {
-        
+       dispatch_async(dispatch_get_main_queue()) {
         
         if (returnval) {
             //print("fly high")
@@ -208,6 +219,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         else {
             self.zstatusLabel.setText("");
             // self!.sendvalueToPhone("\(acceleration.x)")
+        }
         }
     }
     
@@ -270,9 +282,19 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
         // The paired iPhone has to be connected via Bluetooth.
         dispatch_async(dispatch_get_main_queue()) {
+            
+       //     NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isPeakNotified")
+            
+            
+            
+            
             if let validSession = self.session {
                 //let iPhoneAppContext = ["switchStatus": sender.on]
                 let applicationData = ["message_value" : emoji]
+                var defaults = NSUserDefaults(suiteName: "group.com.tuffytiffany.flappybird")
+                
+                defaults?.setBool(false, forKey: "isPeakNotified")
+                defaults?.synchronize()
                 do {
                     try validSession.updateApplicationContext(applicationData)
                 } catch {

@@ -143,6 +143,8 @@
 		9920BF7F1D9BA1C800F9A9F6 /* DDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMultiFormatter.h; sourceTree = "<group>"; };
 		9920BF801D9BA1C900F9A9F6 /* DDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMultiFormatter.m; sourceTree = "<group>"; };
 		9920BF811D9BA1C900F9A9F6 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		992547FC1DA130D000EDB30B /* FlappyBirdCrossWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FlappyBirdCrossWatch.entitlements; sourceTree = "<group>"; };
+		992547FD1DA130E700EDB30B /* FlappyBirdWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FlappyBirdWatchApp.entitlements; sourceTree = "<group>"; };
 		993BA41A1D9E3B3D005658E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		993BA41C1D9E3C13005658E3 /* beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep.caf; sourceTree = "<group>"; };
 		993BA4201D9E432A005658E3 /* censor_beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = censor_beep.wav; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		9951EA931D9B00A1005AAD5C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		9951EA951D9B00A1005AAD5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9951EA971D9B00A1005AAD5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99E243E61DA12CE000D12C43 /* FlappyBirdWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "FlappyBirdWatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		99EEC0D41D9CFAF900F2803A /* FlappyBirdWatchApp Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlappyBirdWatchApp Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		99EEC0D51D9CFAF900F2803A /* WatchUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchUtility.h; sourceTree = "<group>"; };
 		99EEC0D61D9CFAF900F2803A /* WatchUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchUtility.m; sourceTree = "<group>"; };
@@ -323,6 +326,7 @@
 		9951EA631D9AF597005AAD5C /* FlappyBirdCrossWatch */ = {
 			isa = PBXGroup;
 			children = (
+				992547FC1DA130D000EDB30B /* FlappyBirdCrossWatch.entitlements */,
 				9920BF4A1D9BA1C800F9A9F6 /* Utils */,
 				9951EA761D9AFD1B005AAD5C /* Controllers */,
 				9951EA771D9AFD1B005AAD5C /* Views */,
@@ -354,6 +358,7 @@
 		9951EA7D1D9B00A1005AAD5C /* FlappyBirdWatchApp */ = {
 			isa = PBXGroup;
 			children = (
+				992547FD1DA130E700EDB30B /* FlappyBirdWatchApp.entitlements */,
 				9951EA7E1D9B00A1005AAD5C /* Interface.storyboard */,
 				9951EA811D9B00A1005AAD5C /* Assets.xcassets */,
 				993BA4221D9E4366005658E3 /* censor_beep.wav */,
@@ -366,6 +371,7 @@
 		9951EA8C1D9B00A1005AAD5C /* FlappyBirdWatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				99E243E61DA12CE000D12C43 /* FlappyBirdWatchApp Extension.entitlements */,
 				99EEC0D51D9CFAF900F2803A /* WatchUtility.h */,
 				99EEC0D61D9CFAF900F2803A /* WatchUtility.m */,
 				9951EA8F1D9B00A1005AAD5C /* InterfaceController.swift */,
@@ -455,12 +461,30 @@
 				TargetAttributes = {
 					9951EA601D9AF597005AAD5C = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = UQN7GH636G;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					9951EA7B1D9B00A1005AAD5C = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = UQN7GH636G;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					9951EA871D9B00A1005AAD5C = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = UQN7GH636G;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -696,6 +720,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlappyBirdCrossWatch/FlappyBirdCrossWatch.entitlements;
 				INFOPLIST_FILE = FlappyBirdCrossWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch;
@@ -708,6 +733,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlappyBirdCrossWatch/FlappyBirdCrossWatch.entitlements;
 				INFOPLIST_FILE = FlappyBirdCrossWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch;
@@ -720,6 +746,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "FlappyBirdWatchApp Extension/FlappyBirdWatchApp Extension.entitlements";
 				INFOPLIST_FILE = "FlappyBirdWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch.watchkitapp.watchkitextension;
@@ -737,6 +764,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "FlappyBirdWatchApp Extension/FlappyBirdWatchApp Extension.entitlements";
 				INFOPLIST_FILE = "FlappyBirdWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch.watchkitapp.watchkitextension;
@@ -753,6 +781,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlappyBirdWatchApp/FlappyBirdWatchApp.entitlements;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = FlappyBirdWatchApp_Extension;
 				INFOPLIST_FILE = FlappyBirdWatchApp/Info.plist;
@@ -769,6 +798,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlappyBirdWatchApp/FlappyBirdWatchApp.entitlements;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = FlappyBirdWatchApp_Extension;
 				INFOPLIST_FILE = FlappyBirdWatchApp/Info.plist;
