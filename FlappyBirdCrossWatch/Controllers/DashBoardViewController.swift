@@ -158,10 +158,10 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
 //                print(messageValue)
             
             
-            var defaults = NSUserDefaults(suiteName: "group.com.tuffytiffany.flappybird")
-            
-            defaults?.setBool(false, forKey: "isPeakNotified")
-            defaults?.synchronize()
+//            var defaults = NSUserDefaults(suiteName: "group.com.tuffytiffany.flappybird")
+//            
+//            defaults?.setBool(false, forKey: "isPeakNotified")
+//            defaults?.synchronize()
 //
             
             let message_dict : [String : AnyObject] = applicationContext
