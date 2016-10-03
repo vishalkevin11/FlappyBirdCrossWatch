@@ -13,9 +13,9 @@
                         <label width="136" height="32.5" alignment="center" text="Label" textAlignment="center" id="ntX-fY-sgn"/>
                         <label width="136" height="29.5" alignment="left" text="Label" textAlignment="center" id="1PO-lQ-LRU"/>
                         <label width="136" height="30.5" alignment="left" text="Label" textAlignment="center" id="oma-9m-lmq"/>
-                        <button width="1" alignment="left" title="Send to phone" id="nsM-gA-w5b">
+                        <button width="1" alignment="left" title="Initialize" id="nsM-gA-w5b">
                             <connections>
-                                <action selector="watchShookJustNow" destination="AgC-eL-Hgc" id="P9S-Bu-Clz"/>
+                                <action selector="initializeTimerAndDefaults" destination="AgC-eL-Hgc" id="5nv-ty-KfI"/>
                             </connections>
                         </button>
                     </items>

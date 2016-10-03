@@ -123,7 +123,7 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
     
     // MARK: WCSessionDelegate
     
-/*    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+   func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
         
         //Use this to update the UI instantaneously (otherwise, takes a little while)
         
@@ -148,8 +148,9 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
         }
         
     }
- */
+
     
+    /*
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         dispatch_async(dispatch_get_main_queue()) {
             
@@ -170,6 +171,6 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
            // }
                 }
     }
-
+*/
     
 }

@@ -283,20 +283,20 @@ typedef struct{ double x,y,z; }vec_d3;
 //                
 //                defaults?.setBool(false, forKey: "isPeakNotified")
 //                defaults?.synchronize()
-                NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.tuffytiffany.flappybird"];
-                [defaults synchronize];
-        
+//                NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.tuffytiffany.flappybird"];
+//                [defaults synchronize];
+//        
+//            
+//            BOOL isPeakNotified = [defaults boolForKey:@"isPeakNotified"];
             
-            BOOL isPeakNotified = [defaults boolForKey:@"isPeakNotified"];
+                //if ((varSmoothed_last  > 0.3) && (varSmoothed_last  < 0.5) && (isPeakNotified == false)) {
             
-                if ((varSmoothed_last  > 0.3) && (varSmoothed_last  < 0.5) && (isPeakNotified == false)) {
-            
-                    
+                  if ((varSmoothed_last  > 0.3) && (varSmoothed_last  < 0.7)) {
                     
                 
                     
-                    [defaults setBool:true forKey:@"isPeakNotified"];
-                    [defaults synchronize];
+                //    [defaults setBool:true forKey:@"isPeakNotified"];
+                 ///   [defaults synchronize];
                     
                     //self.isPeakNotified = false;
                    // varSmoothed_last = 0.0;

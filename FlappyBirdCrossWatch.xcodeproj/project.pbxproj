@@ -464,7 +464,7 @@
 						DevelopmentTeam = UQN7GH636G;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -473,7 +473,7 @@
 						DevelopmentTeam = UQN7GH636G;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -482,7 +482,7 @@
 						DevelopmentTeam = UQN7GH636G;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -720,7 +720,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FlappyBirdCrossWatch/FlappyBirdCrossWatch.entitlements;
 				INFOPLIST_FILE = FlappyBirdCrossWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch;
@@ -733,7 +732,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FlappyBirdCrossWatch/FlappyBirdCrossWatch.entitlements;
 				INFOPLIST_FILE = FlappyBirdCrossWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch;
@@ -746,7 +744,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "FlappyBirdWatchApp Extension/FlappyBirdWatchApp Extension.entitlements";
 				INFOPLIST_FILE = "FlappyBirdWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch.watchkitapp.watchkitextension;
@@ -764,7 +761,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "FlappyBirdWatchApp Extension/FlappyBirdWatchApp Extension.entitlements";
 				INFOPLIST_FILE = "FlappyBirdWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuffytiffany.FlappyBirdCrossWatch.watchkitapp.watchkitextension;
@@ -781,7 +777,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FlappyBirdWatchApp/FlappyBirdWatchApp.entitlements;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = FlappyBirdWatchApp_Extension;
 				INFOPLIST_FILE = FlappyBirdWatchApp/Info.plist;
@@ -798,7 +793,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FlappyBirdWatchApp/FlappyBirdWatchApp.entitlements;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = FlappyBirdWatchApp_Extension;
 				INFOPLIST_FILE = FlappyBirdWatchApp/Info.plist;
