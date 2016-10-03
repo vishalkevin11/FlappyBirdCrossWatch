@@ -198,7 +198,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     // MARK: Timer Init / ping the Phone
     
     func startThePingMoniterTimer() -> Void {
-        NSTimer.scheduledTimerWithTimeInterval(0.237, target: self, selector: #selector(InterfaceController.moniterPeakValuesAndPing), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.3, target: self, selector: #selector(InterfaceController.moniterPeakValuesAndPing), userInfo: nil, repeats: true)
     }
     
     func moniterPeakValuesAndPing() -> Void {
