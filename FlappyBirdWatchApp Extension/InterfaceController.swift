@@ -95,14 +95,13 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         self.motionMgr.accelerometerUpdateInterval = 0.008
         
         
-        self.motionMgr.startAccelerometerUpdates()
         
         self.motionMgr.startAccelerometerUpdatesToQueue(queue) {
             [weak self] (data: CMAccelerometerData?, error: NSError?) in
             if let acceleration = data?.acceleration {
                 //                let rotation = atan2(acceleration.x, acceleration.y) - M_PI
                 //                self?.imageView.transform = CGAffineTransformMakeRotation(CGFloat(rotation))
-                /// NSOperationQueue.mainQueue().addOperationWithBlock {
+                NSOperationQueue.mainQueue().addOperationWithBlock {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     //                                    // update UI here
@@ -140,7 +139,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                 }
                 //self!.sendvalueToPhone("x \(String(format: "%.1f", acceleration.x)) y \(String(format: "%.1f", acceleration.y)) Z \(String(format: "%.1f", acceleration.z))")
                 
-                
+                }
             }
         }
         
@@ -202,13 +201,21 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     func moniterPeakValuesAndPing() -> Void {
+        
+        objc_sync_enter(self)
         if  (self.isPeekValueReached == true){
             //send the ping
+            self.isPeekValueReached = false
             self.sendPingToPhone()
         }
+        self.isPeekValueReached = false
+    
+                objc_sync_exit(self)
+       
+        
         //else {
         //dont ping but reset the timer flag
-        self.isPeekValueReached = false
+       
         // }
     }
     

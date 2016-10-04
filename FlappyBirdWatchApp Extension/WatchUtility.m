@@ -15,7 +15,7 @@ typedef struct{ double x,y,z; }vec_d3;
 #define SMOOTH_IP(x,x_new,fac) x = fac * x + (1. -fac) * x_new
 #define DOUBLE_EMPTY DBL_MAX
 
-#define THRESHOLD_IMPLUSE .85
+#define THRESHOLD_IMPLUSE .185
 
 
 @implementation WatchUtility {
@@ -28,7 +28,7 @@ typedef struct{ double x,y,z; }vec_d3;
     
     //NSInteger bumpCounter;
     
-    
+    double currentMaxAcceleration;
     
     double cuurentX;
     double cuurentY;
@@ -277,7 +277,7 @@ typedef struct{ double x,y,z; }vec_d3;
             
             
             
-           // @synchronized (self) {
+           @synchronized (self) {
                 
 //                var defaults = NSUserDefaults(suiteName: "com.tuffytiffany.flappybird")
 //                
@@ -299,8 +299,8 @@ typedef struct{ double x,y,z; }vec_d3;
                  ///   [defaults synchronize];
                     
                     //self.isPeakNotified = false;
-                   // varSmoothed_last = 0.0;
-                   // varSmoother_preLast = 0.0;
+                    varSmoothed_last = 0.0;
+                    varSmoother_preLast = 0.0;
 //                    if (self.isPeakNotified) {
 //                        self.isPeakNotified = false;
 //                        varSmoothed_last = 0.0;
@@ -330,7 +330,7 @@ typedef struct{ double x,y,z; }vec_d3;
                 else {
                     return false;
                 }
-//}
+}
            
             
             
