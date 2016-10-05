@@ -22,8 +22,11 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var zstatusLabel: WKInterfaceLabel!
     
     
+    var strtext : String = ""
+    
     var isPeekValueReached : Bool = false
     
+    var counter : Int = 0
     
     
     var motionMgr : CMMotionManager = CMMotionManager()
@@ -92,7 +95,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         let watchUtly : WatchUtility = WatchUtility.init()
         
         
-        self.motionMgr.accelerometerUpdateInterval = 0.008
+        self.motionMgr.accelerometerUpdateInterval = 0.03
         
         
         
@@ -101,9 +104,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             if let acceleration = data?.acceleration {
                 //                let rotation = atan2(acceleration.x, acceleration.y) - M_PI
                 //                self?.imageView.transform = CGAffineTransformMakeRotation(CGFloat(rotation))
-                NSOperationQueue.mainQueue().addOperationWithBlock {
+            //    NSOperationQueue.mainQueue().addOperationWithBlock {
                 
-                dispatch_async(dispatch_get_main_queue()) {
+                //dispatch_async(dispatch_get_main_queue()) {
                     //                                    // update UI here
                     //                    self!.xstatusLabel.setText("x \(acceleration.x) y \(acceleration.y) Z \(acceleration.z)")
                     //                    self!.xstatusLabel.setText("x \(acceleration.x) y \(acceleration.y) Z \(acceleration.z)")
@@ -114,13 +117,57 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                     //
                     //                    self!.sendvalueToPhone("fly high \(valuesStr)")
                     
-                    //
-                    //                    self!.xstatusLabel.setText("\(valuesStr!["1"]!)")
-                    //                    self!.ystatusLabel.setText("\(valuesStr!["2"]!)")
-                    //                    self!.zstatusLabel.setText("\(valuesStr!["3"]!)")
+//                    //
+//                                        self!.xstatusLabel.setText("\(acceleration.x)")
+//                                        self!.ystatusLabel.setText("\(acceleration.y)")
+//                                        self!.zstatusLabel.setText("\(acceleration.z)")
                     
                     //
-                    self?.isPeekValueReached =  watchUtly.getSpikeForAccelerometerValues(acceleration.y, yValue: acceleration.y, zValue: acceleration.y)
+                    //self?.isPeekValueReached =  watchUtly.getSpikeForAccelerometerValues(acceleration.y, yValue: acceleration.y, zValue: acceleration.y)
+                    let value : Double = watchUtly.getSpikeForAccelerometerValues(acceleration.x, yValue: acceleration.y, zValue: acceleration.z)
+                
+                if (value>0.3) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                    
+                        self?.counter = (self?.counter)! + 1
+                        if (self?.counter == 1) {
+                            //NSLog("%.2f",value);
+                           // [self performSelector:@selector(resetCounter) withObject:nil afterDelay:1];
+                            self!.strtext = "NOT \(value)"
+                        self!.zstatusLabel.setText(self?.strtext)
+                            self?.sendPingToPhone()
+                            self?.performSelector(#selector(InterfaceController.resetTheCounter), withObject: nil, afterDelay: 0.8)
+                        }
+                        }
+                    
+                }
+                
+                
+                
+             //        self?.sendPingToPhone()
+            //     self?.zstatusLabel.setText(self?.strtext)
+//                objc_sync_enter(self)
+//                    if value == 0.5 {
+//                        self!.counter = self!.counter + 1
+//                        if (self!.counter == 1) {
+//                  //  self?.zstatusLabel.setText("NOT \(self!.counter)")
+//                            self?.sendPingToPhone()
+//                            self?.performSelector(#selector(InterfaceController.resetTheCounter), withObject: nil, afterDelay: 0.3);
+//                        }
+                        
+                    }
+                    
+                 //   objc_sync_exit(self)
+                    
+//                    if value > 0.5 && value < 0.7 {
+//                        print("aaaa \(value)")
+//                        if value == 0.6 {
+//                            self?.zstatusLabel.setText("\(value)")
+//                        }else {
+//                            self?.zstatusLabel.setText("NOT\(value)")
+//                        }
+//                    
+//                    }
                     //                    if returnval {
                     //                       self?.sendPingToPhone(returnval)
                     //                    }
@@ -139,18 +186,22 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                 }
                 //self!.sendvalueToPhone("x \(String(format: "%.1f", acceleration.x)) y \(String(format: "%.1f", acceleration.y)) Z \(String(format: "%.1f", acceleration.z))")
                 
-                }
-            }
+            //    }
+//}
         }
-        
+
+    
+    func  resetTheCounter() -> Void {
+         self.counter = 0
     }
     
     
     func sendPingToPhone() -> Void {
-        dispatch_async(dispatch_get_main_queue()) {
-            self.zstatusLabel.setText("\(NSDate().timeIntervalSince1970)");
-            self.sendvalueToPhone("fly high \(NSDate().timeIntervalSince1970)")
-        }
+       // dispatch_async(dispatch_get_main_queue()) {
+          //  let date = NSDate().timeIntervalSince1970
+          //  self.zstatusLabel.setText("\(date)");
+            self.sendvalueToPhone(self.strtext)
+       // }
     }
     
     
@@ -227,7 +278,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         session?.activateSession()
         self.initializeMotionManager()
         self.motionUpdates()
-        self.startThePingMoniterTimer()
+        //self.startThePingMoniterTimer()
     }
     
 }

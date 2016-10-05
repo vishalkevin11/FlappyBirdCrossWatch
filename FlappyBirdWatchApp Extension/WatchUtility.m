@@ -11,11 +11,11 @@
 
 typedef struct{ double x,y,z; }vec_d3;
 
-#define RECENT_COUNT 10
+#define RECENT_COUNT 5
 #define SMOOTH_IP(x,x_new,fac) x = fac * x + (1. -fac) * x_new
 #define DOUBLE_EMPTY DBL_MAX
 
-#define THRESHOLD_IMPLUSE .185
+#define THRESHOLD_IMPLUSE .15
 
 
 @implementation WatchUtility {
@@ -165,7 +165,7 @@ typedef struct{ double x,y,z; }vec_d3;
 }
 
 
-- (BOOL)getSpikeForAccelerometerValues:(double)xVal yValue:(double)yVal zValue:(double)zVal {
+- (double)getSpikeForAccelerometerValues:(double)xVal yValue:(double)yVal zValue:(double)zVal {
 
     
     
@@ -276,6 +276,11 @@ typedef struct{ double x,y,z; }vec_d3;
             varSmoothed_last = var_smoothed;
             
             
+            double notRounded = varSmoothed_last;
+            double rounded = round (notRounded * 10.0) / 10.0;
+            
+
+         /*
             
            @synchronized (self) {
                 
@@ -330,7 +335,7 @@ typedef struct{ double x,y,z; }vec_d3;
                 else {
                     return false;
                 }
-}
+}*/
            
             
             
@@ -350,13 +355,13 @@ typedef struct{ double x,y,z; }vec_d3;
 //                        motionManager = nil;
 //                        return;
 //                    });
-                    
+                    return rounded;
             }
             
        // }
         
     //}];
-    return false;
+    return 0.0;
 }
 //
 //-(void)notifyThePeak {

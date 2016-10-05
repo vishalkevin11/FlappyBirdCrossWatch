@@ -14,6 +14,6 @@
 
  
 
-- (BOOL)getSpikeForAccelerometerValues:(double)xVal yValue:(double)yVal zValue:(double)zVal;
+- (double)getSpikeForAccelerometerValues:(double)xVal yValue:(double)yVal zValue:(double)zVal;
 -(NSDictionary *)startTrackingMotionValuesForAccelerometerValues:(double)xVal yValue:(double)yVal zValue:(double)zVal ;
 @end
