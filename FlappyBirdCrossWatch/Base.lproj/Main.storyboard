@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="second from watch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgw-JI-G7z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Connected : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgw-JI-G7z">
                                 <rect key="frame" x="20" y="45" width="560" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Qge-qu-QKY"/>
@@ -27,19 +27,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf9-MP-EIH">
-                                <rect key="frame" x="20" y="74" width="560" height="21"/>
+                                <rect key="frame" x="20" y="74" width="560" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="v1f-ZF-nsL"/>
+                                    <constraint firstAttribute="height" id="v1f-ZF-nsL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQS-YU-QZC">
-                                <rect key="frame" x="20" y="109" width="560" height="55"/>
+                                <rect key="frame" x="20" y="88" width="560" height="0.0"/>
                                 <color key="backgroundColor" red="0.41926262485211263" green="0.69078250875949643" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="xLr-sq-UkC"/>
+                                    <constraint firstAttribute="height" id="xLr-sq-UkC"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Ping TV"/>
@@ -48,16 +48,16 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPd-ek-0oC">
-                                <rect key="frame" x="20" y="185" width="560" height="55"/>
+                                <rect key="frame" x="20" y="109" width="560" height="55"/>
                                 <color key="backgroundColor" red="0.41926262489999999" green="0.69078250880000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="abL-Da-ROv"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Connect"/>
+                                <state key="normal" title="Connect To TV"/>
                                 <connections>
                                     <action selector="connect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oCh-ul-6z5"/>
-                                    <action selector="sendSignalToTvFromPhone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WXB-M2-3fH"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -16,7 +16,7 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
     
     
     var isPreviousCallCompleted : Bool = true
-    let client = AsyncClient()
+    var client : AsyncClient?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,15 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
     
     override func viewDidAppear(animated: Bool) {
         
-     // self.performSelector(#selector(DashBoardViewController.connectToTV), withObject: nil, afterDelay: 0.3)
+     self.performSelector(#selector(DashBoardViewController.connectToTV), withObject: nil, afterDelay: 1.0)
     }
     
     
     func connectToTV() -> Void {
-        client.serviceType = "_ClientServer._tcp"
-        client.delegate = self
-        client.start()
+        client = AsyncClient()
+        client!.serviceType = "_ClientServer._tcp"
+        client!.delegate = self
+        client!.start()
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,13 +57,14 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
 //        
 //        defaults?.setBool(false, forKey: "isPeakNotified")
 //        defaults?.synchronize()
-        client.sendObject("PING To tv through phone")
+        
+        client!.sendObject("PING To tv through phone")
     }
     
     func client(theClient: AsyncClient!, didFindService service: NSNetService!, moreComing: Bool) -> Bool {
         
         print("didFindService")
-        self.labelTimestamp.text = "didFindService"
+       // self.labelTimestamp.text = "didFindService"
         print(service)
         return true
     }
@@ -70,32 +72,33 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
     func client(theClient: AsyncClient!, didRemoveService service: NSNetService!) {
         
         print("didRemoveService")
-        self.labelTimestamp.text = "didRemoveService"
+       // self.labelTimestamp.text = "didRemoveService"
         print(theClient)
     }
     
     func client(theClient: AsyncClient!, didConnect connection: AsyncConnection!) {
         
         print("didConnect")
-        self.labelTimestamp.text = "didConnect"
+        self.labelTimestamp.text = "TV Connected : YES"
         print(theClient)
     }
     
     func client(theClient: AsyncClient!, didDisconnect connection: AsyncConnection!) {
         print("diddisconnect")
-        self.labelTimestamp.text = "diddisconnect"
+        self.labelTimestamp.text = "TV Connected : NO"
+        self.performSelector(#selector(DashBoardViewController.connectToTV), withObject: nil, afterDelay: 0.5)
         print(theClient)
     }
     
     func client(theClient: AsyncClient!, didReceiveCommand command: AsyncCommand, object: AnyObject!, connection: AsyncConnection!) {
         print("didreceivecommand")
-        self.labelTimestamp.text = "didreceivecommand"
+       // self.labelTimestamp.text = "didreceivecommand"
         print(command)
     }
     
     func client(theClient: AsyncClient!, didFailWithError error: NSError!) {
         print("didfailwitherror")
-        self.labelTimestamp.text = "didfailwitherror"
+      //  self.labelTimestamp.text = "didfailwitherror"
     }
     
     
@@ -140,9 +143,16 @@ class DashBoardViewController: UIViewController, WCSessionDelegate , AsyncClient
                 
                 if let messageValue : String = message["message_value"] as? String {
                     //self.labelMessage.text = "Last message_value: \(messageValue)"
-                    print(messageValue)
-                    self.labelTimestamp.text = "\(messageValue)"
-                    self.client.sendObject(messageValue)
+                    //print(messageValue)
+                   // if messageValue == "jump" {
+                        self.labelTimestamp.text = "\(messageValue)"
+                        self.client!.sendObject(messageValue)
+//                    }
+//                    else if messageValue == "start" {
+//                        
+//                        
+//                    }
+            
                 }
         //    }
         }

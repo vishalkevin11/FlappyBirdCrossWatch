@@ -10,23 +10,31 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="FlappyBirdWatchApp" customModuleProvider="target">
                     <items>
-                        <label width="136" height="32.5" alignment="center" text="Label" textAlignment="center" id="ntX-fY-sgn"/>
-                        <label width="136" height="29.5" alignment="left" text="Label" textAlignment="center" id="1PO-lQ-LRU"/>
-                        <label width="136" height="30.5" alignment="left" text="Label" textAlignment="center" id="oma-9m-lmq"/>
-                        <button width="1" alignment="left" title="Initialize" id="nsM-gA-w5b">
+                        <label height="95.5" alignment="center" text="Start Waving watch" textAlignment="center" numberOfLines="0" id="axb-cY-ZdZ"/>
+                        <button width="1" height="58.5" alignment="center" title="START" id="nsM-gA-w5b">
+                            <color key="titleColor" red="1" green="0.88657345320000003" blue="0.15808321829999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                             <connections>
-                                <action selector="initializeTimerAndDefaults" destination="AgC-eL-Hgc" id="5nv-ty-KfI"/>
+                                <action selector="startTheGame" destination="AgC-eL-Hgc" id="XVU-rl-8Il"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="58.5" alignment="center" title="PLAY AGAIN" id="adg-Qm-ox6">
+                            <color key="titleColor" red="1" green="0.88657345320000003" blue="0.15808321829999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                            <connections>
+                                <action selector="PlayAgain" destination="AgC-eL-Hgc" id="DNk-9z-saH"/>
                             </connections>
                         </button>
                     </items>
+                    <color key="backgroundColor" red="0.32549019607843138" green="0.60784313725490191" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
-                        <outlet property="xstatusLabel" destination="ntX-fY-sgn" id="sy7-dh-3Jt"/>
-                        <outlet property="ystatusLabel" destination="1PO-lQ-LRU" id="oRb-KQ-2SR"/>
-                        <outlet property="zstatusLabel" destination="oma-9m-lmq" id="DsK-DV-Quo"/>
+                        <outlet property="btnPlayAgain" destination="adg-Qm-ox6" id="oiV-mI-cpy"/>
+                        <outlet property="btnStart" destination="nsM-gA-w5b" id="sgL-b1-ZSf"/>
+                        <outlet property="labelStartWave" destination="axb-cY-ZdZ" id="Z7e-G0-hQL"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="345"/>
+            <point key="canvasLocation" x="220" y="348.5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
